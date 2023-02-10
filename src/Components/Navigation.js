@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
-import { FaBars, FaHome } from "react-icons/fa";
+import { FaBars, FaWindowClose } from "react-icons/fa";
 import { useState } from "react";
 import './Navigation.css'
+import MenuData from "../Data/MenuData";
 
 const Navigation = () => {
 
@@ -12,28 +13,27 @@ const Navigation = () => {
         <aside>
             <div className="navbar">
                 <div className="navbar-toggle">
-                    <Link to="#" className="menubar">
+                    <Link to="#" className="menu-bar">
                         <FaBars onClick={toggleMenu} />
                     </Link>
                 </div>
             </div>
             <nav className={showMenu ? "nav-menu active" : "nav-menu"}>
-                <ul className="nav-menu-item">
-                    <li className="menu-text">
-                        <Link to="#">
-                            <FaHome /><span>หน้าแรก</span>
+                <ul className="nav-menu-item" onClick={toggleMenu}>
+                    <li className="navbar-toggle">
+                        <Link to="#" className="menu-bar">
+                            <FaWindowClose onClick={toggleMenu} />
                         </Link>
                     </li>
-                    <li className="menu-text">
-                        <Link to="#">
-                            <FaHome /><span>หน้าแรก</span>
-                        </Link>
-                    </li>
-                    <li className="menu-text">
-                        <Link to="#">
-                            <FaHome /><span>หน้าแรก</span>
-                        </Link>
-                    </li>
+                    {MenuData.map((menu, index) => {
+                        return (
+                            <li className="menu-text" key={index}>
+                                <Link to={menu.path}>
+                                    {menu.icon}<span>{menu.title}</span>
+                                </Link>
+                            </li>
+                        )
+                    })}
                 </ul>
             </nav>
         </aside>
