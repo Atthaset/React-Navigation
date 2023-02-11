@@ -1,9 +1,8 @@
 const Member=()=>{
     return(
         <div>
-            <h1>Memberpage</h1>
-            <p>Hello User</p>
-            <button>Register</button>
+            <h1>Member</h1>
+            <p>Hello Panther</p>
         </div>
     )
 }

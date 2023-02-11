@@ -1,7 +1,10 @@
+import panther from '../../Panther/panther.png'
+
 const Home=()=>{
     return(
         <div>
-            <h1>Homepage</h1>
+            <img src={panther} alt="panther"/>
+            <h1>Home</h1>
         </div>
     )
 }
